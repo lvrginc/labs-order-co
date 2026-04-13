@@ -1,0 +1,21 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="bg-navy border-t border-white/5">
+  <div class="max-w-content mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div>
+        <p class="text-white font-semibold text-sm">Agentic Labs</p>
+        <p class="text-gray-500 text-xs mt-1">Part of <a href="https://order.co" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-300 transition-colors">Order.co</a></p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href={base} class="text-sm text-gray-400 hover:text-gray-300 transition-colors">Home</a>
+        <a href={`${base}blog`} class="text-sm text-gray-400 hover:text-gray-300 transition-colors">Blog</a>
+      </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-white/5">
+      <p class="text-gray-600 text-xs">&copy; {new Date().getFullYear()} Order Agentic Labs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

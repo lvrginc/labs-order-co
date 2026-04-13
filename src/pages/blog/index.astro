@@ -12,35 +12,40 @@ const posts = Object.values(postFiles)
   .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 ---
 
-<Base title="Blog | Agentic Labs" description="Technical research, announcements, and insights from Order Agentic Labs.">
+<Base title="Blog | Agentic Labs" description="Research, technical deep-dives, and updates from Order Agentic Labs.">
 
-  <section class="bg-navy pt-32 pb-16 px-6">
-    <div class="max-w-content mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold text-white">Blog</h1>
-      <p class="mt-4 text-gray-400 max-w-xl">Technical research, announcements, and insights from the team building agentic procurement infrastructure.</p>
+  <section class="relative pt-32 pb-16 px-6">
+    <div class="absolute inset-0 grid-bg"></div>
+    <div class="glow-orb w-[400px] h-[400px] bg-emerald-500/10 -top-20 -right-20"></div>
+    <div class="relative max-w-6xl mx-auto">
+      <p class="text-emerald-400 font-mono text-xs tracking-wider mb-4">RESEARCH & UPDATES</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white">Blog</h1>
+      <p class="mt-4 text-gray-400 max-w-xl">Technical research, architectural decisions, and updates from the team building agentic procurement infrastructure.</p>
     </div>
   </section>
 
   <section class="py-16 px-6">
-    <div class="max-w-content mx-auto">
+    <div class="max-w-6xl mx-auto">
       {posts.length === 0 && (
-        <p class="text-slate text-sm">No posts yet. Check back soon.</p>
+        <p class="text-gray-500 text-sm">No posts yet. Check back soon.</p>
       )}
-      <div class="space-y-8">
+      <div class="space-y-0 divide-y divide-white/5">
         {posts.map((post) => (
-          <a href={post.url} class="group block">
-            <article class="border-b border-gray-100 pb-8">
-              <div class="flex items-center gap-3 mb-3">
-                <time class="text-xs font-mono text-gray-400">{post.frontmatter.date}</time>
-                {post.frontmatter.tags?.map((tag: string) => (
-                  <span class="text-xs font-mono text-sky bg-sky/10 px-2 py-0.5 rounded">{tag}</span>
+          <a href={post.frontmatter.placeholder ? undefined : post.url} class:list={["group block py-8 first:pt-0", post.frontmatter.placeholder ? "opacity-50 cursor-default" : ""]}>
+            <article class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+              <div class="flex items-center gap-3 md:w-48 shrink-0">
+                <time class="text-xs font-mono text-gray-600">{post.frontmatter.date}</time>
+                {post.frontmatter.tags?.slice(0, 1).map((tag: string) => (
+                  <span class="text-xs font-mono text-emerald-400/60 bg-emerald-400/5 px-2 py-0.5 rounded">{tag}</span>
                 ))}
               </div>
-              <h2 class="text-xl font-semibold text-charcoal group-hover:text-order-blue transition-colors">{post.frontmatter.title}</h2>
-              <p class="text-sm text-slate mt-2 leading-relaxed max-w-2xl">{post.frontmatter.description}</p>
-              {post.frontmatter.author && (
-                <p class="text-xs text-gray-400 mt-3">By {post.frontmatter.author}</p>
-              )}
+              <div class="flex-1">
+                <h2 class:list={["text-lg font-semibold transition-colors duration-200", post.frontmatter.placeholder ? "text-gray-500" : "text-white group-hover:text-emerald-400"]}>
+                  {post.frontmatter.title}
+                  {post.frontmatter.placeholder && <span class="ml-2 text-xs font-mono text-gray-600 font-normal">Coming soon</span>}
+                </h2>
+                <p class="text-sm text-gray-500 mt-2 leading-relaxed max-w-2xl">{post.frontmatter.description}</p>
+              </div>
             </article>
           </a>
         ))}

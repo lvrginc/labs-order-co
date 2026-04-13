@@ -26,7 +26,7 @@ const base = import.meta.env.BASE_URL;
   <meta name="twitter:description" content={description} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -39,8 +39,42 @@ const base = import.meta.env.BASE_URL;
     },
     "description": "AI research and deployment division of Order.co. Building agentic infrastructure for B2B procurement."
   })} />
+  <style>
+    @keyframes grid-fade {
+      0%, 100% { opacity: 0.03; }
+      50% { opacity: 0.08; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes float-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      animation: float-up 0.6s ease-out forwards;
+    }
+    .animate-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .animate-in-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .animate-in-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .animate-in-delay-4 { animation-delay: 0.4s; opacity: 0; }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: grid-fade 8s ease-in-out infinite;
+    }
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse-glow 6s ease-in-out infinite;
+    }
+  </style>
 </head>
-<body class="bg-white text-charcoal antialiased">
+<body class="bg-[#0A0A0F] text-gray-200 antialiased font-sans">
   <Nav />
   <main>
     <slot />

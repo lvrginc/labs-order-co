@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import Card from '../components/Card.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -15,75 +14,152 @@ const posts = Object.values(postFiles)
 
 <Base title="Agentic Labs | Order">
 
-  <!-- Hero -->
-  <section class="bg-navy pt-32 pb-24 px-6">
-    <div class="max-w-content mx-auto">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-3xl">
-        Building the agentic infrastructure that transforms how businesses buy.
-      </h1>
-      <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
-        Agentic Labs is Order's AI research and deployment division. We build the agents that run inside Order and deploy into customer environments.
-      </p>
-    </div>
-  </section>
+  <!-- Hero with grid background and glow orbs -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background effects -->
+    <div class="absolute inset-0 grid-bg"></div>
+    <div class="glow-orb w-[500px] h-[500px] bg-emerald-500/20 -top-40 -right-40"></div>
+    <div class="glow-orb w-[300px] h-[300px] bg-emerald-600/10 bottom-20 -left-20" style="animation-delay: 3s;"></div>
 
-  <!-- Capabilities -->
-  <section class="py-24 px-6 bg-light-gray">
-    <div class="max-w-content mx-auto">
-      <p class="text-xs font-mono text-slate uppercase tracking-wider mb-12">What we build</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <Card
-          title="Autonomous Ordering"
-          description="AI agents that log into vendor portals, compare prices, and place orders without human intervention."
-          icon="⚡"
-        />
-        <Card
-          title="Intelligent Approvals"
-          description="Policy-aware routing that learns from historical purchasing patterns and organizational rules."
-          icon="🔒"
-        />
-        <Card
-          title="Spend Intelligence"
-          description="Real-time anomaly detection, vendor performance scoring, and proactive alternative sourcing."
-          icon="📊"
-        />
+    <div class="relative max-w-6xl mx-auto px-6 pt-32 pb-24">
+      <div class="animate-in">
+        <p class="text-emerald-400 font-mono text-sm tracking-wider mb-6">ORDER AGENTIC LABS</p>
+      </div>
+      <h1 class="animate-in animate-in-delay-1 text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] max-w-4xl">
+        What if software didn't just show you the work<span class="text-emerald-400">.</span><br/>
+        <span class="text-gray-500">What if it did the work.</span>
+      </h1>
+      <p class="animate-in animate-in-delay-2 mt-8 text-lg text-gray-400 max-w-2xl leading-relaxed">
+        We research and build autonomous agents that execute real business operations. 
+        Not copilots. Not chatbots. Systems that act.
+      </p>
+      <div class="animate-in animate-in-delay-3 mt-12 flex items-center gap-4">
+        <a href={`${base}blog`} class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium text-sm px-6 py-3 rounded-lg transition-all duration-200">
+          Read our research
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Thesis -->
-  <section class="py-24 px-6">
-    <div class="max-w-reading mx-auto">
-      <p class="text-xs font-mono text-slate uppercase tracking-wider mb-8">Operating thesis</p>
-      <p class="text-xl text-charcoal leading-relaxed">
-        Buying complexity does not live in one screen or one approval flow. It lives across vendor coordination, policy enforcement, intake, purchasing, payment, exception handling, and follow-up.
-      </p>
-      <p class="text-xl text-charcoal leading-relaxed mt-6">
-        Traditional software makes those steps visible. Agentic Labs builds infrastructure that executes them.
-      </p>
+  <!-- Problem Space -->
+  <section class="py-32 px-6 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0F] via-[#0D0F14] to-[#0A0A0F]"></div>
+    <div class="relative max-w-6xl mx-auto">
+      <p class="text-emerald-400 font-mono text-xs tracking-wider mb-4">THE PROBLEM</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white max-w-3xl leading-tight mb-16">
+        B2B purchasing is a distributed execution problem. 
+        <span class="text-gray-500">Current software only makes it visible.</span>
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-px bg-white/5 rounded-xl overflow-hidden">
+        <div class="bg-[#0D0F14] p-8 group hover:bg-[#0F1218] transition-colors duration-300">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+            <span class="text-emerald-400 text-lg">01</span>
+          </div>
+          <h3 class="text-white font-semibold mb-3">Vendor coordination</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Hundreds of vendor portals, each with different interfaces, catalogs, pricing structures, and ordering flows. No two work the same way.</p>
+        </div>
+        <div class="bg-[#0D0F14] p-8 group hover:bg-[#0F1218] transition-colors duration-300">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+            <span class="text-emerald-400 text-lg">02</span>
+          </div>
+          <h3 class="text-white font-semibold mb-3">Policy enforcement</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Approval chains, budget thresholds, preferred vendor lists, contract terms. Rules that vary by department, change quarterly, and live in twelve different systems.</p>
+        </div>
+        <div class="bg-[#0D0F14] p-8 group hover:bg-[#0F1218] transition-colors duration-300">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+            <span class="text-emerald-400 text-lg">03</span>
+          </div>
+          <h3 class="text-white font-semibold mb-3">Exception handling</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">The vendor shipped late. The price changed. The invoice doesn't match the PO. The budget moved. Every transaction has a tail of follow-up work.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Latest Posts -->
-  {posts.length > 0 && (
-    <section class="py-24 px-6 bg-light-gray">
-      <div class="max-w-content mx-auto">
-        <div class="flex items-center justify-between mb-12">
-          <p class="text-xs font-mono text-slate uppercase tracking-wider">Latest from the lab</p>
-          <a href={`${base}blog`} class="text-sm text-order-blue hover:text-blue-700 transition-colors">All posts &rarr;</a>
+  <!-- Research Areas -->
+  <section class="py-32 px-6 relative border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-emerald-400 font-mono text-xs tracking-wider mb-4">RESEARCH AREAS</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white max-w-2xl leading-tight mb-16">
+        We work on the hard parts of agentic execution.
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border border-white/5 rounded-xl p-8 hover:border-emerald-500/20 transition-all duration-300 group">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            <p class="text-emerald-400 font-mono text-xs">ACTIVE</p>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Autonomous task execution</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Agents that navigate real vendor systems, make purchasing decisions within policy constraints, and complete transactions end-to-end without human intervention.</p>
         </div>
-        <div class="grid md:grid-cols-2 gap-8">
-          {posts.slice(0, 4).map((post) => (
+        <div class="border border-white/5 rounded-xl p-8 hover:border-emerald-500/20 transition-all duration-300 group">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            <p class="text-emerald-400 font-mono text-xs">ACTIVE</p>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Learned policy enforcement</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Moving from rule-based approval routing to systems that learn organizational purchasing patterns and enforce constraints that were never formally codified.</p>
+        </div>
+        <div class="border border-white/5 rounded-xl p-8 hover:border-emerald-500/20 transition-all duration-300 group">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            <p class="text-emerald-400 font-mono text-xs">ACTIVE</p>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Reliable failure and escalation</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Agents that know what they don't know. When the situation exceeds the agent's confidence threshold, it escalates with full context instead of guessing.</p>
+        </div>
+        <div class="border border-white/5 rounded-xl p-8 hover:border-emerald-500/20 transition-all duration-300 group">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+            <p class="text-yellow-400 font-mono text-xs">EXPLORING</p>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Cross-system orchestration</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Coordinating agent actions across ERP, procurement, payment, and vendor systems with transactional integrity and full audit trails.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thesis / Belief -->
+  <section class="py-32 px-6 relative border-t border-white/5">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0F] via-[#080B10] to-[#0A0A0F]"></div>
+    <div class="relative max-w-3xl mx-auto text-center">
+      <p class="text-emerald-400 font-mono text-xs tracking-wider mb-8">OUR BELIEF</p>
+      <blockquote class="text-2xl md:text-3xl font-light text-white leading-relaxed">
+        "The best procurement software in the world still requires a human to click the buttons. We're building systems that press them."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Latest from the Lab -->
+  {posts.length > 0 && (
+    <section class="py-32 px-6 border-t border-white/5">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-12">
+          <div>
+            <p class="text-emerald-400 font-mono text-xs tracking-wider mb-2">FROM THE LAB</p>
+            <h2 class="text-2xl font-bold text-white">Latest research and updates</h2>
+          </div>
+          <a href={`${base}blog`} class="text-sm text-gray-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
+            All posts
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.slice(0, 6).map((post) => (
             <a href={post.url} class="group block">
-              <article class="bg-white border border-gray-100 rounded-lg p-8 hover:border-gray-200 hover:shadow-sm transition-all h-full">
-                <div class="flex items-center gap-3 mb-4">
-                  <time class="text-xs font-mono text-gray-400">{post.frontmatter.date}</time>
-                  {post.frontmatter.tags?.map((tag: string) => (
-                    <span class="text-xs font-mono text-sky bg-sky/10 px-2 py-0.5 rounded">{tag}</span>
+              <article class="border border-white/5 rounded-xl p-6 hover:border-emerald-500/20 transition-all duration-300 h-full bg-[#0D0F14]">
+                <div class="flex items-center gap-2 mb-4">
+                  <time class="text-xs font-mono text-gray-600">{post.frontmatter.date}</time>
+                  {post.frontmatter.tags?.slice(0, 1).map((tag: string) => (
+                    <span class="text-xs font-mono text-emerald-400/70 bg-emerald-400/5 px-2 py-0.5 rounded">{tag}</span>
                   ))}
                 </div>
-                <h3 class="text-lg font-semibold text-charcoal group-hover:text-order-blue transition-colors">{post.frontmatter.title}</h3>
-                <p class="text-sm text-slate mt-3 leading-relaxed">{post.frontmatter.description}</p>
+                <h3 class="text-base font-semibold text-white group-hover:text-emerald-400 transition-colors duration-200 leading-snug">{post.frontmatter.title}</h3>
+                <p class="text-xs text-gray-500 mt-3 leading-relaxed line-clamp-2">{post.frontmatter.description}</p>
               </article>
             </a>
           ))}

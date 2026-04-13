@@ -31,7 +31,7 @@ const posts = Object.values(postFiles)
       )}
       <div class="space-y-0 divide-y divide-white/5">
         {posts.map((post) => (
-          <a href={post.frontmatter.placeholder ? undefined : post.url} class:list={["group block py-8 first:pt-0", post.frontmatter.placeholder ? "opacity-50 cursor-default" : ""]}>
+          <a href={post.frontmatter.placeholder ? undefined : post.url} class:list={["group block py-8 first:pt-0", post.frontmatter.placeholder ? "cursor-default" : ""]}>
             <article class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
               <div class="flex items-center gap-3 md:w-48 shrink-0">
                 <time class="text-xs font-mono text-gray-600">{post.frontmatter.date}</time>

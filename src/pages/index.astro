@@ -41,6 +41,35 @@ const posts = Object.values(postFiles)
     </div>
   </section>
 
+  <!-- Launch Video -->
+  <section class="py-20 px-6 relative">
+    <div class="max-w-5xl mx-auto">
+      <div class="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#0D0F14] group cursor-pointer">
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-emerald-600/5"></div>
+        <!-- Grid pattern inside -->
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <!-- Play button + text -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-6">
+          <div class="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/20 group-hover:border-emerald-500/30 group-hover:scale-105 transition-all duration-300">
+            <svg class="w-8 h-8 text-emerald-400 ml-1" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <div class="text-center">
+            <p class="text-white font-semibold text-lg">Introducing Agentic Labs</p>
+            <p class="text-gray-500 text-sm mt-1">Launch video coming soon</p>
+          </div>
+        </div>
+        <!-- Corner accents -->
+        <div class="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-emerald-500/20 rounded-tl-lg"></div>
+        <div class="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-emerald-500/20 rounded-tr-lg"></div>
+        <div class="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-emerald-500/20 rounded-bl-lg"></div>
+        <div class="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-emerald-500/20 rounded-br-lg"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Problem Space -->
   <section class="py-32 px-6 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0F] via-[#0D0F14] to-[#0A0A0F]"></div>
